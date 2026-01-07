@@ -1,37 +1,36 @@
 from flask import Flask, request
 from datetime import datetime
 import csv
+import os
 
 app = Flask(__name__)
 filename = "parking_dataset.csv"
 
-# Initialize CSV with headers if not exists
-try:
-    with open(filename, "x", newline="") as f:
+if not os.path.exists(filename):
+    with open(filename, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["created_at", "field1", "field2"])
-except:
-    pass
+        writer.writerow(["timestamp", "ir_number", "status", "occupied"])
 
 @app.route("/update", methods=["POST"])
 def update():
     event = request.form.get("event")
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # Default values
-    slot_id = "-"
-    availability = "-"
+    ir_number = None
+    status = "free"
+    occupied = 0
 
-    # Parse event string: SLOT,1,OCCUPIED
-    if event.startswith("SLOT"):
+    if event:
         parts = event.split(",")
-        slot_id = parts[1]
-        availability = parts[2]
+        if len(parts) == 2:
+            ir_number = int(parts[0].strip())
+            if parts[1].strip().upper() == "OCCUPIED":
+                status = "occupied"
+                occupied = 1
 
-    # Save to dataset
     with open(filename, "a", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow([timestamp, slot_id, availability])
+        writer.writerow([timestamp, ir_number, status, occupied])
 
     return "OK"
 

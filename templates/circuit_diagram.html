@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Parking System – IR Sensor to Arduino Mega Mapping</title>
+<style>
+  body {
+    margin: 0;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  svg text {
+    font-size: 14px;
+    fill: #000;
+  }
+  .sensor {
+    fill: #ff5c7a;
+    stroke: #b00030;
+    stroke-width: 2;
+  }
+  .wire {
+    stroke: #e60000;
+    stroke-width: 4;
+    fill: none;
+  }
+  .pin {
+    fill: #f2c94c;
+    stroke: #a67c00;
+    stroke-width: 1.5;
+  }
+  .board {
+    fill: #111;
+    stroke: #000;
+    stroke-width: 2;
+  }
+  .mega {
+    fill: #1f5fa7;
+  }
+  .esp {
+    fill: #2e7d32;
+  }
+  .label-white {
+    fill: #fff;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+<svg width="1100" height="700" viewBox="0 0 1100 700">
+
+<!-- ================= SENSORS ================= -->
+<g transform="translate(100,50)">
+  <!-- Sensors -->
+  <g>
+    <circle class="sensor" cx="0" cy="0" r="22"/>
+    <text x="-12" y="5" fill="#fff" font-weight="bold">IR1</text>
+    <text x="-12" y="40">A0</text>
+  </g>
+  <g transform="translate(120,0)">
+    <circle class="sensor" cx="0" cy="0" r="22"/>
+    <text x="-12" y="5" fill="#fff" font-weight="bold">IR2</text>
+    <text x="-12" y="40">A1</text>
+  </g>
+  <g transform="translate(240,0)">
+    <circle class="sensor" cx="0" cy="0" r="22"/>
+    <text x="-12" y="5" fill="#fff" font-weight="bold">IR3</text>
+    <text x="-12" y="40">A2</text>
+  </g>
+  <g transform="translate(360,0)">
+    <circle class="sensor" cx="0" cy="0" r="22"/>
+    <text x="-12" y="5" fill="#fff" font-weight="bold">IR4</text>
+    <text x="-12" y="40">A3</text>
+  </g>
+  <g transform="translate(480,0)">
+    <circle class="sensor" cx="0" cy="0" r="22"/>
+    <text x="-12" y="5" fill="#fff" font-weight="bold">IR5</text>
+    <text x="-12" y="40">A4</text>
+  </g>
+  <g transform="translate(600,0)">
+    <circle class="sensor" cx="0" cy="0" r="22"/>
+    <text x="-12" y="5" fill="#fff" font-weight="bold">IR6</text>
+    <text x="-12" y="40">A5</text>
+  </g>
+  <g transform="translate(720,0)">
+    <circle class="sensor" cx="0" cy="0" r="22"/>
+    <text x="-12" y="5" fill="#fff" font-weight="bold">IR7</text>
+    <text x="-12" y="40">A6</text>
+  </g>
+  <g transform="translate(840,0)">
+    <circle class="sensor" cx="0" cy="0" r="22"/>
+    <text x="-12" y="5" fill="#fff" font-weight="bold">IR8</text>
+    <text x="-12" y="40">A7</text>
+  </g>
+</g>
+
+<!-- ================= BOARD ================= -->
+<rect x="80" y="160" width="940" height="260" rx="20" class="board"/>
+
+<!-- Mega + ESP areas -->
+<rect x="120" y="200" width="520" height="180" rx="12" class="mega"/>
+<text x="300" y="300" class="label-white" font-size="20">Arduino Mega 2560</text>
+
+<rect x="660" y="200" width="300" height="180" rx="12" class="esp"/>
+<text x="735" y="300" class="label-white" font-size="20">ESP8266</text>
+
+<!-- ================= ANALOG PINS ================= -->
+<g transform="translate(100,220)">
+  <text x="-70" y="140">(Analog Input)</text>
+
+  <!-- Pins A0-A7 -->
+  <g>
+    <rect class="pin" x="0" y="0" width="20" height="20"/>
+    <text x="-35" y="15">A0</text>
+  </g>
+  <g transform="translate(0,25)">
+    <rect class="pin" x="0" y="0" width="20" height="20"/>
+    <text x="-35" y="15">A1</text>
+  </g>
+  <g transform="translate(0,50)">
+    <rect class="pin" x="0" y="0" width="20" height="20"/>
+    <text x="-35" y="15">A2</text>
+  </g>
+  <g transform="translate(0,75)">
+    <rect class="pin" x="0" y="0" width="20" height="20"/>
+    <text x="-35" y="15">A3</text>
+  </g>
+  <g transform="translate(0,100)">
+    <rect class="pin" x="0" y="0" width="20" height="20"/>
+    <text x="-35" y="15">A4</text>
+  </g>
+  <g transform="translate(0,125)">
+    <rect class="pin" x="0" y="0" width="20" height="20"/>
+    <text x="-35" y="15">A5</text>
+  </g>
+  <g transform="translate(0,150)">
+    <rect class="pin" x="0" y="0" width="20" height="20"/>
+    <text x="-35" y="15">A6</text>
+  </g>
+  <g transform="translate(0,175)">
+    <rect class="pin" x="0" y="0" width="20" height="20"/>
+    <text x="-35" y="15">A7</text>
+  </g>
+</g>
+
+<!-- ================= WIRES ================= -->
+<!-- Straight, non-crossing, traceable -->
+<path class="wire" d="M100 72 V220"/>
+<path class="wire" d="M220 72 V245"/>
+<path class="wire" d="M340 72 V270"/>
+<path class="wire" d="M460 72 V295"/>
+<path class="wire" d="M580 72 V320"/>
+<path class="wire" d="M700 72 V345"/>
+<path class="wire" d="M820 72 V370"/>
+<path class="wire" d="M940 72 V395"/>
+
+<!-- ================= MODE SELECT ================= -->
+<rect x="430" y="440" width="240" height="60" rx="10" fill="#222"/>
+<text x="455" y="470" fill="#fff">Mode Select: Arduino / ESP8266</text>
+
+<!-- ================= LEGEND ================= -->
+<rect x="180" y="520" width="740" height="140" rx="12" fill="#f5f5f5" stroke="#000"/>
+
+<text x="220" y="550">
+IR1→A0 | IR2→A1 | IR3→A2 | IR4→A3
+</text>
+<text x="220" y="580">
+IR5→A4 | IR6→A5 | IR7→A6 | IR8→A7
+</text>
+<text x="220" y="620">
+8 IR Sensors connected to Arduino Mega Analog Input Pins A0–A7
+</text>
+<text x="220" y="650">
+5V USB Power | Mega + ESP8266 integrated on single PCB
+</text>
+
+</svg>
+</body>
+</html>
